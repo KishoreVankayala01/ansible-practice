@@ -1,0 +1,10 @@
+---
+- name: Copying file to nodes
+  hosts: servers
+  become: yes
+
+  tasks:
+   - name: Copy message files
+     ansible.builtin.copy:
+       src: notes.txt
+       dest: /tmp/notes.txt

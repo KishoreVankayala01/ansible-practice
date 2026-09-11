@@ -1,0 +1,23 @@
+---
+- name: variables and loops Practice
+  hosts: servers
+  become: yes
+
+  vars:
+   app_dir: /tmp/ansible_files
+   log_files:
+      - app.log
+      - error.log
+      - access.log
+      - debug.log
+  tasks:
+   - name: Create application directory
+     ansible.builtin.file:
+       path: "{{ app_dir }}"
+       state: directory
+
+   - name: Create a log file
+     ansible.builtin.file:
+       path: "{{ app_dir }}/{{ item }}"
+       state: touch
+     loop: "{{ log_files }}"

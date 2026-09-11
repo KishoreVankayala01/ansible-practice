@@ -1,0 +1,11 @@
+---
+- name: Write Content to file
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: "Write message to the file"
+      ansible.builtin.copy:
+        content: "Hello, This is Kishore"
+        dest: /tmp/ansible_practix.txt
+

@@ -1,0 +1,20 @@
+---
+- name: Practice Ansible Variables
+  hosts: servers
+  become: yes
+
+  vars:
+   app_dir: /tmp/ansible_files
+   file_name: file1.txt
+   message: "This file was created using Ansible Variable."
+
+  tasks:
+   - name: Create application directory
+     ansible.builtin.file:
+       path: "{{ app_dir }}"
+       state: directory
+
+   - name: Create server file
+     ansible.builtin.copy:
+       content: "{{ message }}"
+       dest: "{{ app_dir }}/{{ file_name }}"

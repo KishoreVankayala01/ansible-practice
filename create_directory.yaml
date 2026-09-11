@@ -1,0 +1,10 @@
+---
+- name: Create Directory on nodes
+  hosts: servers
+  become: yes
+
+  tasks:
+   - name: Create Ansible Practice directory
+     ansible.builtin.file:
+       path: /tmp/ansible_practice
+       state: directory

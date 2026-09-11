@@ -1,0 +1,9 @@
+---
+- name: File Operations Practice
+  hosts: servers
+  become: yes
+  tasks:
+     - name: "Creating a file"
+       ansible.builtin.file:
+         path: /tmp/ansible_practix.txt
+         state: touch

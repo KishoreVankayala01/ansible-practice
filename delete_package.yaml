@@ -1,0 +1,10 @@
+---
+- name: Deleting a package
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: "Deleting a package"
+      ansible.builtin.apt:
+        name: tree
+        state: absent

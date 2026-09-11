@@ -1,0 +1,15 @@
+---
+- name: Creating multiple files using a loop
+  hosts: servers
+  become: yes
+
+  tasks:
+   - name: Create files
+     ansible.builtin.file:
+       path: "/tmp/ansible_files/{{ item }}"
+       state: touch
+     loop:
+       - file1.txt
+       - file2.txt
+       - file3.txt
+       - file4.txt
